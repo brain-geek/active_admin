@@ -52,7 +52,7 @@ module ActiveAdmin
       # Adds the default action items to each resource
       def add_default_action_items
         # New Link on all actions except :new and :show
-        add_action_item :except => [:new, :show] do
+        add_action_item :except => [:new, :show, :create, :edit, :update] do
           if controller.action_methods.include?('new')
             link_to(I18n.t('active_admin.new_model', :model => active_admin_config.resource_name), new_resource_path)
           end
