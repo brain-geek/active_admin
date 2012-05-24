@@ -12,7 +12,7 @@ module ActiveAdmin
 					name = ""
 					if part =~ /^\d/ && parent = parts[index - 1]
 						begin
-							parent_class = active_admin_namespace.resources.find_by_key(parent.titleize).resource
+							parent_class = active_admin_namespace.resources.find_by_key(parent.singularize.titleize).resource
 							obj = parent_class.find(part.to_i)
 							name = obj.display_name if obj.respond_to?(:display_name)
 						rescue
